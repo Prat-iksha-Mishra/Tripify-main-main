@@ -1,0 +1,126 @@
+<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis header_Img_For_All">
+  <div class="col-md-12 ">
+    <div class="row">
+      <div class="col-lg-12 text-center custom-card px-0">
+        <h1 class="text-white">Contact Trippify Expert</h1>
+        <h3 class="text-white fst-italic">We are here resolve all yout query.</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<div class=" mt-2 mt-4">
+  <!-- <div class="m-auto">
+    <H1 class="display-4 fst-italic text-center">Contact Trippify Expert</H1>
+  </div> -->
+  <div class="card-body mt-4">
+    <div class="row">
+      <div class="mx-5 col-md-6">
+        <form>
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <label for="userName" class="form-label">Name</label>
+            </div>
+            <div class="col-md-9">
+              <input type="text" class="form-control" id="userName" name="userName" aria-describedby="userName" [(ngModel)]="contactObj.userName">
+              <div id="userName" class="form-text">Share your sweet name here.</div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-md-3">
+            <label for="userEmail" class="form-label">Email address</label></div>
+            <div class="col-md-9">
+              <input type="userEmail" class="form-control" id="userEmail" aria-describedby="userEmail" name="userEmail" [(ngModel)]="contactObj.userEmail">
+              <div id="userEmail" class="form-text text-start">We'll never share your email with anyone else.</div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <label for="userComment">Question</label>
+            </div>
+            <div class="col-md-9">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="height: 100px" name="userComment" [(ngModel)]="contactObj.userComment"></textarea>
+              <div id="userComment" class="form-text text-start">You can write whatever you want to ask regarding your
+                travel plan...</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" (click)="contactUs()">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-3 mt-2 offset-2">
+
+        <body>
+          <div class="wrapper">
+            <div class="border-circle" id="one"></div>
+            <div class="border-circle" id="two"></div>
+            <div class="background-circle">
+              <div class="triangle-light"></div>
+              <div class="body"></div>
+              <span class="shirt-text">G</span>
+              <span class="shirt-text">O</span>
+              <span class="shirt-text">..</span>
+              <span class="shirt-text">O</span>
+              <span class="shirt-text">N</span>
+              <div class="triangle-dark"></div>
+            </div>
+            <div class="head">
+              <div class="ear" id="left"></div>
+              <div class="ear" id="right"></div>
+              <div class="hair-main">
+                <div class="sideburn" id="left"></div>
+                <div class="sideburn" id="right"></div>
+                <div class="hair-top"></div>
+              </div>
+              <div class="face">
+                <div class="hair-bottom"></div>
+                <div class="nose"></div>
+                <div class="eye-shadow" id="left">
+                  <div class="eyebrow"></div>
+                  <div class="eye"></div>
+                </div>
+                <div class="eye-shadow" id="right">
+                  <div class="eyebrow"></div>
+                  <div class="eye"></div>
+                </div>
+                <div class="mouth"></div>
+                <div class="shadow-wrapper">
+                  <div class="shadow"></div>
+                </div>
+              </div>
+            </div>
+            <span class="music-note" id="one">&#9835;</span>
+            <span class="music-note" id="two">&#9834;</span>
+          </div>
+        </body>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-danger mt-2 blinking-button" (click)="toggleQueries()">Click here for Customer Queries</button>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="showQueries">
+  <h1 class="display-4 fst-italic text-center">Customer's Queries</h1>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item" *ngFor="let que of query; let i = index">
+      <h2 class="accordion-header" id="heading{{i}}">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="true" [attr.aria-controls]="'collapse' + i">
+          {{que.userName}} : {{que.userEmail}}
+        </button>
+      </h2>
+      <div [id]="'collapse' + i" class="accordion-collapse collapse show" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <h1 class="display-6">{{que.userComment}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
